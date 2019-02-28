@@ -1,0 +1,18 @@
+---
+title: "ERP 原理与应用 - 2019"
+author: "陆海波"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 实验
+
+1. [了解企业资源计划ERP](实验1--了解企业资源计划ERP.doc)
+
+## 答疑时间
+
+- 第五学科楼 A222, 周一、二、四
+- Email: sit_simul@163.com
