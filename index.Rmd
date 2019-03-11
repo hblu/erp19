@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 1. [初识 ERP](chapter1/index.html)
 2. [管理需求推动 ERP 的发展](chapter2/index.html)
 3. [ERP 为企业带来的效益](chapter3/index.html)
+4. [基础数据---企业运营的关键](chapter4/index.html)
 
 ## 实验
 
