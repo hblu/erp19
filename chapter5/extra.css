@@ -1,0 +1,18 @@
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'STFangsong', 'Songti SC', serif; }
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz', 'Palatino Linotype', 'Book Antiqua', Palatino, 'STKaiti', 'SimHei', 'Microsoft YaHei';
+  font-weight: normal;
+}
+
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', 'STFangsong', Monaco, monospace; }
+.remark-slide-content {font-size: 25px}
+.remark-code-line {font-size: 23px; min-height: 0em;}
+li {margin: 12px}
+
+
+.quote {background: #f3fcd5; font-style: italic; font-size: 30px;}
+.darkblue {font-weight: bold; color: darkblue; font-size: 27}
+.red {font-weight: bold; color: red; font-size: 25}
+.gray {font-weight: bold; color: #1a2d39; font-size: 25}
+.c {color: #3D4251;background-color: #E6EAEB; font-family: 'Roboto Mono',monospace;}

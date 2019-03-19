@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ERP原理与应用</title>
+    <meta charset="utf-8">
+    <meta name="author" content="陆海波" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="zh-CN.css" type="text/css" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ERP原理与应用
+## 第五章 物料管理
+### 陆海波
+### 2019/3/19
+
+---
+
+
+
+
+
+## 物料管理概述
+
+- 任何一个制造企业的生产活动都是先从厂外购买各种物料，然后在厂内使用这些物料组织生产，形成产品，销售出厂。在各个环节中的所有各种物料相互之间具有联系，都属于ERP系统物料管理范畴
+
+--
+
+- 任何一种物料都是由于某种需求而存在，因此必然处于经常流动的状态，而不应当在某个储藏点长期滞留。不流动的物料时一种积压和浪费。如果仓库内某种物料长期积压，可能是由于产品设计已经修改，不再需要这种物料，或者由于其他物料出现短缺，使得不能配套装配
+
+---
+## 物料管理概述
+
+- 一个制造企业的生产过程实质上时一个物流过程。所谓生产计划，实质上时物料流动的计划
+- 计划的对象是物料，计划执行的结果也要通过对物料的监控来考核
+- 如果说计划管理是ERP系统的主线，那么物料管理就是ERP系统的基础，因为它提供了计划管理的监控和保证手段
+
+---
+## 物料管理概述
+
+- 对物料管理来说，物料就是资金，而资金是有时间价值的
+- 在机械产品成本中，物料成本占45%~75%，因此，要强调库存物料的价值，要缩短生产周期，加速库存周转以降低成本，提高资金利用率
+- 对库存管理水平常用库存周转次数来考察，它反映一年中库存流动的速率
+
+--
+
+.quote[
+库存周转率 = 年售出货物成本 / 库存平均价值
+]
+
+---
+## 物料管理概述
+
+提高库存周转率对于公司的运作具有重要意义
+
+&lt;img src="img/example5.1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##库存目的和成本
+
+- 库存是为了保证生产和客户服务正常进行的一切存储的物料，包括原材料、在制品、最终产品、在途产品以及用于维护、修理和日常运作的物料
+
+--
+
+- 库存的目的
+  - 安全库存
+  - 预期库存
+  - 批量库存
+  - 在途库存
+  - 囤积库存
+
+---
+##库存目的和成本
+
+- 库存成本
+  - 物料成本
+  - 订货成本
+  - 保管成本
+  - 缺货成本
+  - 与产能相关的成本
+  
+---
+## 订货批量
+
+- 确定订货批量的目标有两个方面，即使所涉及的成本之和最小，使客户服务水平最高
+- 常用的确定订货批量的方法有
+  - 固定订货批量法
+  - 经济订货批量法
+  - 按需订货批量法
+  - 时区订货批量法
+  - 最小单位成本法
+  - 最小总成本法
+  - Wagner-Whitin 法
+  
+---
+## 固定订货批量法
+
+- 可用于MRP控制下的所有物料，但在实践中，通常只限于订货成本比较大的部分物料
+- 订货的数量可根据经验决定
+
+&lt;img src="img/tab5.1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 经济订货批量法
+
+- 它假设需求均匀发生，从而平均库存量是订货批量的一半
+- 其基本出发点是使订货成本和保管成本之和最小
+
+&lt;img src="img/fig5.1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 经济订货批量法
+
+- 确定经济订货的公式：
+$$
+EOQ = \sqrt{\frac{2RS}{IC}}
+$$
+  - 其中, R为年需求量，S为一次订货成本，I为保管成本占平均库存值的百分比，C为物料单价
+
+&lt;img src="img/tab5.2.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 按需确定批量法
+
+- 根据各时区的净需求量来确定订货量，需要多少订多少
+- 每当净需求量改变时，相应的订货量也随之改变
+- 采用这种方法也可以降低物料存储成本，因而常用于价值较高和需求极不连续的外构件及制造件
+
+&lt;img src="img/tab5.3.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 时区订货批量法
+
+- 是一种为适应间断性需求环境而在 EOQ 基础上修改而得到的方法
+- 首先要确定每次订货所覆盖的时区数，根据各时区已知的净需求量数据，用标准的EOQ方法计算出每年的订货次数
+- 然后用一年的总时区数除以订货次数，即得到每次订货所覆盖的时区数
+
+&lt;img src="img/tab5.4.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+## 最小单位成本法
+
+- 其订货批量是变动的，根据一个或几个后续计划时区内的净需求量来确定批量，使订货批量与净需求量相等
+- 吸收了EOQ中关于使订货成本与保管成本之和最小的思想，但是采用的手段不同
+
+---
+## 最小单位成本法
+
+&lt;img src="img/tab5.5.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 最小总成本法
+
+- 订货批量是变动的，根据一个或几个后续计划时区内的净需求量来确定批量，使订货批量与净需求量相等
+- 依据的原理是，计划期内的订货成本越接近保管成本，这个计划期内的所有批量的订货成本与保管成本之和也越小，这与EOQ法的依据原理是一样的
+- 因此尽可能选取单位订货成本与单位保管成本想接近的订货批量
+
+---
+## 最小总成本法
+
+- 选择标准: .red[总订货成本接近总存储成本]
+
+&lt;img src="img/tab5.7.png" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;img src="img/tab5.8.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+## 批量调整因子
+
+- 不管计划订货批量是采用哪一种方法确定的，在实际执行时，都会由于某些因素而必须加以调整
+- 这时主要考虑以下几个因素
+  - 最大订货量和最小订货量：通常由市场、生产条件或管理部门确定
+  - 损耗率：在确定订货批量时，要按损耗率增加一定余量，以便弥补在加工过程中可能会发生的损耗
+  - 批量倍数：可能时由于出口加工的工艺的考虑，出于包装的考虑，使得必须把按批量算法求得的批量向上调整到某一个数的倍数
+  
+---
+## 批量调整因子
+
+例：
+
+| 初步算出的订货量 |  173  |
+|------------------|-------|
+|减少到只覆盖3个时区的需求 | 121|
+|考虑损耗率，要增加11件  | 132|
+|向上调整到20的倍数  |  140|
+
+
+---
+## 安全库存和安全提前期
+
+由于大量不确定因素的存在，需求和供应总是难免有不平衡的情况。为了弥补可能出现的不平衡，需要在工序之间增加缓冲手段：
+
+- 安全库存
+- 安全提前期
+
+两种安全参数都是为了提高客户服务水平
+
+--
+
+.quote[
+某时区预计可用量 = 上时区预计可用量 + 该时区预计可用量
+- 该时区毛需求量
+]
+
+
+---
+## 如何设置安全库存
+
+- 为物料设置适当的安全库存量设计实际需求相对于需求预测的偏差的度量
+- 假定实际需求的发生服从以预测值为均值的正态分布, 用其标准差 `\(\sigma\)` 来表示适当的安全库存
+$$
+\sigma = \sqrt{\frac{\sum_1^n(\mbox{实际需求之}-\mbox{预测值})^2}{n-1}}
+$$
+
+
+---
+## 如何设置安全库存
+
+&lt;img src="img/tab5.11.png" style="display: block; margin: auto;" /&gt;
+
+--
+
+可求得10个时区的偏差为 `\(\simga = 211\)`
+
+---
+## 如何设置安全库存
+
+&lt;img src="img/fig5.2.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 如何设置安全库存
+
+- 如果库存量等于预测值, 则库存量能满足需求的概率是 50%, 即服务水平为 50%
+
+&lt;img src="img/fig5.3.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 如何设置安全库存
+
+- 如果想提高服务水平, 例如保持 `\(1\sigma\)` 的安全库存, 则库存服务水平将是 84.13% (=50%+68.26%/2)
+
+&lt;img src="img/fig5.4.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 如何设置安全库存
+
+- 安全库存表达式中 `\(\sigma\)` 前面所乘的系数称为 .red[库存安全系数] 
+
+&lt;img src="img/tab5.12.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 安全提前期
+
+- 安全提前期和安全库存的作用类似, 都是为了缓冲供需的不平衡性
+- 一般来说, 安全库存针对供需量不确定性比较大的物料, 如备品备件以及面向订单装配产品的公用件和可选件
+- 对供需时间的不确定性, 如受运输或其他因素影响, 不能如期抵达的采购件或完工产品, 则会采用安全提前期
+
+
+---
+## 库存准确度
+
+- 在 MRP 环境下, 计算机中的库存记录数据准确度必须至少达到95%, 否则不能实现主生产计划和运行 MRP
+
+--
+
+- 但有很多如螺母, 螺栓之类的非常细小, 价格便宜的零件在仓库中成千上万, 无法使用计算机记录和实际库存相匹配
+
+--
+
+- 对于这类物料通常不采用清点计数的方法, 而采用测量计数的方法, 如称其重量, 然后通过一个转换因子转换成件数
+
+---
+## 库存准确度
+
+- .red[计数容限] 对于每个测量计数的物料项目都确定一个计数容限. 如果计数容限是 `\(\pm3\%\)`, 则任何实际的计数如果和计算机记录的相对误差不超过3%, 则可以作为准确数据来接受
+
+--
+
+- .red[准确度为95%的含义]: 对于 95%的库存物料来说, 计算机中所寸在库存余额数据和库房中存于货架上的实际数量在计数容限内相匹配
+
+
+---
+## 库存准确度
+
+- 关于一项物料的计数方法不是使用计数容限的唯一准则, 还有如:
+  - 物料的价值
+  - 提前期
+  - 物料在产品中的关键程度
+  
+---
+## ABC 分析
+
+- 物料的 ABC 分类的依据是帕累托定律 (二八规律)
+
+--
+
+- 在一个企业中有很多库存物料, 但是他们对于企业生产运作的重要性并非都是一致的, 也符合帕累托定律:    
+  - 大部分的物料价值集中在少数的物料上, 称为 .red[A类物料]
+  - 大量的物料只占少量价值, 称为 .red[C类物料]
+  - 处于中间状态的称为 .red[B类物料]
+
+--
+
+- 我们应该更严格地关注A类物料, 对其采用比较高的盘点频率和比较低的计数容限进行循环盘点
+- 而对于 B 和 C 类物料的关注度可以相对宽松
+- 这样既可以达到 ERP 系统对库存记录准确度的要求, 也可以降低相关成本
+
+---
+## ABC 分析
+
+- ERP 软件一般都有对物料进行 ABC 分类的功能
+- 假定 A,B,C 三类物料分别占总物料价值的80%, 15% 和 5%
+- 将所有物料按使用价值 (用量*单位成本) 排序, 然后按所排次序累加
+
+&lt;img src="img/fig5.5.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## 循环盘点
+
+- 循环盘点是得到并保持库存记录准确性的有效途径
+- 指每天对库存中的部分物料项目进行盘点, 从而使一年中对所有物料项目的盘点次数达到预定值
+- 对一项物料进行盘点的时间间隔称为该物料的 .red[盘点周期]
+- 一年中对某物料进行盘点的次数称为该物料的 .red[盘点频率]
+
+---
+## 循环盘点目标
+
+- 发现出错原因, 并消除
+- 检测系统运行结果
+- 校正不正确的记录
+- 取消年度库存盘点
+- 提高循环盘点人员的素质
+
+---
+## 常见的循环盘点方法
+
+- ABC 分类法
+  - 最常见的循环盘点方法是依据 ABC 分类法, ABC 三类物料的库存记录准确性计数容限也不应相同, 如为 1%, 2%, 5%
+  - 其盘点周期也不应相同: 如 A 类每月一次, B 类每季度一次, C 类每半年一次
+
+---
+## 常见的循环盘点方法
+
+每天盘点的物料项目数可按如下求
+
+&lt;img src="img/tab5.13.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+## 常见的循环盘点方法
+
+- 分区分块法
+  - 将库存项目按所在的区域分组, 以提高盘点效率
+  
+- 存放地点审查法
+  - 用于准确地确定物料的有效存放地点
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
